@@ -7,62 +7,28 @@ var messageDisplay = document.getElementById("message");
 var goal = pickAColor();
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
-var easyBtn = document.querySelector("#easyBtn");
-var hardBtn = document.querySelector("#hardBtn");
+var modeBtn = document.querySelectorAll(".mode");
 
-// switch between easy and hard mode
-easyBtn.addEventListener("click", function() {
-    easyBtn.classList.add("selected");
-    hardBtn.classList.remove("selected");
-    // genrete new colors
-    sqaureNum = 3;
-    colorSet = generateColorSet(sqaureNum);
-    // pick a new goal
-    goal = pickAColor();
-    for (var i = 0; i < squareSet.length; i++) {
-        // make the extra squares disappear
-        if (i >= colorSet.length) {
-            squareSet[i].style.display = "none";
+// change game mode
+for (var i = 0; i < modeBtn.length; i++) {
+    modeBtn[i].addEventListener("click", function(){
+        // remove class from all mode buttons
+        for (var j = 0; j < modeBtn.length; j++) {
+            modeBtn[j].classList.remove("selected");
+        }
+        // add to the current one
+        this.classList.add("selected");
+        if (this.textContent == "EASY") {
+            sqaureNum = 3;
         } else {
-            squareSet[i].style.backgroundColor = colorSet[i];
+            sqaureNum = 6;
         }
-    }
-})
-
-hardBtn.addEventListener("click", function() {
-    hardBtn.classList.add("selected");
-    easyBtn.classList.remove("selected");
-    // genrete new colors
-    sqaureNum = 6;
-    colorSet = generateColorSet(sqaureNum);
-    // pick a new goal
-    goal = pickAColor();
-    for (var i = 0; i < squareSet.length; i++) {
-        // make the extra squares disappear
-        squareSet[i].style.backgroundColor = colorSet[i];
-        if (i >= 3) {
-            squareSet[i].style.display = "block";
-        }
-    }
-})
+        resetGame();
+    });
+}
 
 // generate new colors when clicking reset
-resetButton.addEventListener("click", function() {
-    // generate new colors
-    colorSet = generateColorSet(sqaureNum);
-    // pick a new goal
-    goal = pickAColor();
-    // change colors of squares
-    for (var i = 0; i < squareSet.length; i++) {
-        squareSet[i].style.backgroundColor = colorSet[i];
-    }
-    // reset h1 color to background color
-    h1.style.backgroundColor = "deepskyblue";
-    // reset messageDisplay disappear
-    messageDisplay.textContent = "";
-    // reset button text from PLAY AGAIN TO NEW COLORS
-    resetButton.textContent = "NEW COLORS";
-})
+resetButton.addEventListener("click", resetGame);
 
 // show goal rgb color in the title
 for (var i = 0; i < squareSet.length; i++) {
@@ -90,10 +56,25 @@ for (var i = 0; i < squareSet.length; i++) {
 }
 
 function resetGame() {
-    var n = colorSet.length;
-    generateColorSet(n);
-    var newGoal = pickAColor();
-    return newGoal;
+    // generate new colors
+    colorSet = generateColorSet(sqaureNum);
+    // pick a new goal
+    goal = pickAColor();
+    // change colors of squares
+    for (var i = 0; i < squareSet.length; i++) {
+        if (colorSet[i]) {
+            squareSet[i].style.display = "block";
+            squareSet[i].style.backgroundColor = colorSet[i];
+        } else {
+            squareSet[i].style.display = "none";
+        }
+    }
+    // reset h1 color to background color
+    h1.style.backgroundColor = "deepskyblue";
+    // reset messageDisplay disappear
+    messageDisplay.textContent = "";
+    // reset button text from PLAY AGAIN TO NEW COLORS
+    resetButton.textContent = "NEW COLORS";
 }
 
 function changeColor(color) {
