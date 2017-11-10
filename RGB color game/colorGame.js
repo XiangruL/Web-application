@@ -57,8 +57,7 @@ resetButton.addEventListener("click", function() {
         squareSet[i].style.backgroundColor = colorSet[i];
     }
     // reset h1 color to background color
-    h1.style.backgroundColor =
-    window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+    h1.style.backgroundColor = "deepskyblue";
     // reset messageDisplay disappear
     messageDisplay.textContent = "";
     // reset button text from PLAY AGAIN TO NEW COLORS
