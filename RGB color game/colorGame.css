@@ -49,7 +49,7 @@ button:hover {
 
 #container {
     max-width: 600px;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 #colorDisplay {
@@ -60,7 +60,6 @@ button:hover {
     display: inline-block;;
     width: 20%;
     margin: 0 auto;
-    margin-left: 1%;
     font-size: 20px;
 }
 
@@ -74,11 +73,12 @@ button:hover {
 }
 
 .square {
-    width:30%;
+    width:26%;
     background: pink;
-    padding-top: 30%;
+    padding-top: 26%;
     float: left;
     margin: 1.66%;
+    padding-left: 20px;
     border-radius: 10%;
     transition: background 0.5s;
     /*browser support for transition*/
