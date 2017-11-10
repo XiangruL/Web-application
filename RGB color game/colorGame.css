@@ -36,10 +36,6 @@ button:hover {
     background: deepskyblue;
 }
 
-/*span {
-    color: white;
-}*/
-
 #stripe {
     background: white;
     height: 30px;
@@ -47,17 +43,8 @@ button:hover {
     color: black;
 }
 
-.square {
-    width:30%;
-    background: pink;
-    padding-top: 30%;
-    float: left;
-    margin: 1.66%;
-    border-radius: 10%;
-    transition: background 0.5s;
-    /*browser support for transition*/
-    -webkit-transition: background 0.6s;
-    -moz-transition: background 0.6s;
+#reset {
+    margin-left: 5%;
 }
 
 #container {
@@ -71,11 +58,30 @@ button:hover {
 
 #message {
     display: inline-block;;
-    width: 25%;
+    width: 20%;
+    margin: 0 auto;
+    margin-left: 1%;
+    font-size: 20px;
+}
 
+.mode {
+    margin-left: 0;
 }
 
 .selected {
     color: white;
     background: deepskyblue;
+}
+
+.square {
+    width:30%;
+    background: pink;
+    padding-top: 30%;
+    float: left;
+    margin: 1.66%;
+    border-radius: 10%;
+    transition: background 0.5s;
+    /*browser support for transition*/
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
 }
