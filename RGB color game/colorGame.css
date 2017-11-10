@@ -6,8 +6,15 @@ h1 {
     color: white;
 }
 
-span {
+/*span {
     color: white;
+}*/
+
+#stripe {
+    background: white;
+    height: 30px;
+    text-align: center;
+    color: black;
 }
 
 .square {
@@ -21,4 +28,8 @@ span {
 #container {
     max-width: 600px;
     margin: 0 auto;
+}
+
+.selected {
+    background: blue;
 }
